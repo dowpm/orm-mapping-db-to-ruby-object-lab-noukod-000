@@ -30,7 +30,9 @@ class Student
     WHERE grade < ?
     SQL
 
-    DB[:conn].execute(sql,"12")
+    DB[:conn].execute(sql,"12").map do |row|
+      new_from_db row
+    end
   end
 
   def self.find_by_name(name)
