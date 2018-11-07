@@ -26,6 +26,17 @@ class Student
     end
   end
 
+  def self.students_below_12th_grade
+    sql = <<-SQL
+    SELECT * FROM students
+    WHERE grade < ?
+    SQL
+
+    DB[:conn].execute(sql,"12").map do |row|
+      row
+    end
+  end
+
   def self.find_by_name(name)
     sql = <<-SQL
     SELECT * FROM students WHERE name = ?
