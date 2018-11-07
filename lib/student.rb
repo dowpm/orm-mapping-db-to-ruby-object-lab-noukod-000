@@ -56,7 +56,9 @@ class Student
     ORDER BY id LIMIT 1
     SQL
 
-    DB[:conn].execute(sql,10)
+    DB[:conn].execute(sql,10).map do |row|
+      new_from_db row
+    end
   end
 
   def self.find_by_name(name)
