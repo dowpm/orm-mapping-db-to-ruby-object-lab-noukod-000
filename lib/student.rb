@@ -21,7 +21,7 @@ class Student
     WHERE grade = ?
     SQL
 
-    DB[:conn].execute(sql,"9th").map do |row|
+    DB[:conn].execute(sql,"9").map do |row|
       row
     end
   end
