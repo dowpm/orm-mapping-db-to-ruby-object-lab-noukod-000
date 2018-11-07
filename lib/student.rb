@@ -21,7 +21,9 @@ class Student
     WHERE grade = ?
     SQL
 
-    DB[:conn].execute(sql,"9")
+    DB[:conn].execute(sql,"9").map do |row|
+      new_from_db row
+    end
   end
 
   def self.students_below_12th_grade
