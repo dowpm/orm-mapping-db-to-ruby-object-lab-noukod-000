@@ -59,6 +59,10 @@ class Student
     new_from_db DB[:conn].execute(sql,10)[0]
   end
 
+  def self.all_students_in_grade_X x
+
+  end
+
   def self.find_by_name(name)
     sql = <<-SQL
     SELECT * FROM students WHERE name = ?
